@@ -12,11 +12,13 @@
     <title>Weather</title>
   </head>
   <body>
+
     <nav class="navbar navbar-dark bg-primary mb-3">
         <div class="container">
-            <a href="#" class="navbar-brand">Weather.JS</a>
+            <a href="#" class="navbar-brand">Weather App</a>
         </div>
     </nav>
+
     <div class="container searchContainer">
         <div class="search card card-body">
             <h1>Current Weather</h1>
@@ -26,16 +28,28 @@
         <br>
         <div id="profile"></div>
     </div>
+
     <div class="container text-center mt-2">
         <button class="btn btn-primary" id="submit">Submit</button>
     </div>
     
     <div id="content">
-
+      <div class="weather loading text-center">
+        <h2 class="city">Jacksonville</h2>
+        <div class="flex">
+          <img src="https://openweathermap.org/img/wn/04n.png" alt="" class="icon" />
+        </div>
+        <div class="current">
+          <div class="temp">93<span>°F</span></div>
+          <div class="weather">Sunny</div>
+          <div class="feels">Feels like: 98°F</div>
+        </div>
+      </div>
     </div>
-    <footer class="mt-5 p-3 text-center bg-light">
-         Weather.js &copy;
-    </footer>
+    
+    <!-- <footer class="mt-5 p-3 text-center bg-light">
+         Weather App
+    </footer> -->
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

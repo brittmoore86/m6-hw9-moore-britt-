@@ -8,13 +8,55 @@
     // Uses data for API call
     // Return data and parse info for UI
 
-
-class Fetch {
-    async getCurrent(input) {
-        const myKey = "ce57e369227af8466e0b1a3e66b17f67";
-    }
+const api = {
+  key: "ce57e369227af8466e0b1a3e66b17f67",
+  base: "https://api.openweathermap.org/data/2.5/weather?q='&appid=ce57e369227af8466e0b1a3e66b17f67"
 }
 
-const response = await fetch(
-    
-)
+var searchBar = document.getElementById('searchUser');
+
+var button = document.getElementById('submit')
+button.addEventListener('click', () => {
+    getResults(searchBar.value)
+})
+
+// async function fetchWeather(location){
+//     let response = await fetch('https://api.openweathermap.org/data/2.5/weather?q=' 
+//     + location 
+//     + '&appid=ce57e369227af8466e0b1a3e66b17f67');
+//     let data = await response.json();
+
+//     console.log(data);
+//     }
+
+async function getResults(location){
+    let response = await fetch('https://api.openweathermap.org/data/2.5/weather?q=' +
+      location +
+      '&units=imperial&appid=ce57e369227af8466e0b1a3e66b17f67')
+    .then(weather => {
+            return weather.json();
+          }).then(displayResults);
+    }
+
+
+// function getResults (query) {
+//   fetch('https://api.openweathermap.org/data/2.5/weather?q='&appid=ce57e369227af8466e0b1a3e66b17f67')
+//     .then(weather => {
+//       return weather.json();
+//     }).then(displayResults);
+// }
+
+function displayResults (weather) {
+  console.log(weather);
+  let city = document.querySelector('.city');
+  city.innerText = `${weather.name}, ${weather.sys.country}`;
+
+  let temp = document.querySelector('.temp');
+  temp.innerHTML = `${Math.round(weather.main.temp)}<span>°F</span>`;
+
+  let weather_el = document.querySelector('.current .weather');
+  weather_el.innerText = weather.weather[0].main;
+
+  let humidity = document.querySelector('.humidity');
+  humidity.innerText = weather.weather[0].main;
+}
