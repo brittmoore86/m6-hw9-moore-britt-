@@ -4,4 +4,5 @@ Fetching the data from the API was the easy part of the assignment, but I had th
 
 https://www.youtube.com/watch?v=n4dtwWgRueI 
 
+I also could not figure out how to properly change the weather icon with the cooresponding search results.
 

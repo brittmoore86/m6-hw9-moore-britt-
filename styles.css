@@ -13,3 +13,10 @@ body {
 .text-center {
     margin-top: 10%;
 }
+
+img {
+    background-color: lightskyblue;
+    border-radius: 4px 4px 4px 4px;
+    margin-bottom: 16px;
+    margin-top: 16px;
+}
