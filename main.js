@@ -8,6 +8,10 @@
     // Uses data for API call
     // Return data and parse info for UI
 
+  // Check list:
+    // Background image
+    // "Feels like" temperature
+
 const api = {
   key: "ce57e369227af8466e0b1a3e66b17f67",
   base: "https://api.openweathermap.org/data/2.5/weather?q='&appid=ce57e369227af8466e0b1a3e66b17f67"
@@ -52,11 +56,16 @@ function displayResults (weather) {
   city.innerText = `${weather.name}, ${weather.sys.country}`;
 
   let temp = document.querySelector('.temp');
-  temp.innerHTML = `${Math.round(weather.main.temp)}<span>°F</span>`;
+  temp.innerHTML = 'Current temperature: ' + `${Math.round(weather.main.temp)}<span>°F</span>`;
 
   let weather_el = document.querySelector('.current .weather');
   weather_el.innerText = weather.weather[0].main;
 
-  let humidity = document.querySelector('.humidity');
-  humidity.innerText = weather.weather[0].main;
+  let feelsLike = document.querySelector('.feels');
+  feelsLike.innerText = `Feels like: ${Math.round(weather.main.feels_like)} °F `;
+
+  const iconElement = document.querySelector('.icon')
+
+  // let iconsForTemp = 'http://openweathermap.org/img/wn/${items.icon}.png';
+  // tempIcon.src = iconsForTemp;
 }
